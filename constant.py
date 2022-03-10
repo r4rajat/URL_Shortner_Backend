@@ -4,6 +4,10 @@ APP_HOST = 'APP_HOST'
 APP_PORT = 'APP_PORT'
 APP_WORKERS = 'APP_WORKERS'
 
+# Memcached Configurations
+MEMCACHED_HOST = 'MEMCACHED_HOST'
+MEMCACHED_PORT = 'MEMCACHED_PORT'
+
 MESSAGE = 'message'
 ERROR = 'error'
 CAUSE = 'cause'
