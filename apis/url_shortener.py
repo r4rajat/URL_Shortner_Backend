@@ -37,7 +37,7 @@ async def get_shortened_url(long_url: str):
         if short_url:
             content = {
                 constant.MESSAGE: "Short URL Found for " + long_url,
-                constant.SHORT_URL: short_url
+                constant.SHORT_URL: "if.cld/" + short_url
             }
             return JSONResponse(content=content, status_code=200)
 
@@ -47,7 +47,7 @@ async def get_shortened_url(long_url: str):
                 short_url = data[constant.SHORT_URL]
                 content = {
                     constant.MESSAGE: "Short URL Found for " + long_url,
-                    constant.SHORT_URL: short_url
+                    constant.SHORT_URL: "if.cld/" + short_url
                 }
                 return JSONResponse(content=content, status_code=200)
             else:
