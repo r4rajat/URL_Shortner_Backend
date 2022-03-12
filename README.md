@@ -10,8 +10,9 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Deployment](#deployment)
 - [Built Using](#built_using)
+- [Running the tests](#tests)
+- [API Documentation](#usage)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
@@ -73,35 +74,23 @@ python3 run.py
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+To Run the Test Cases, Open a terminal in the Project and run following command
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+pytest
 ```
 
 ## 📃 API Documentation <a name="usage"></a>
-#### For OpenAPI Documentation
+To check the Supported Endpoints, and it's documentation, Run the Project and kindly use any of the methods mentioned below
+
+#### For Swagger UI Documentation
 ```
-<host>:<port>/docs
-Ex: localhost:5000/docs
+localhost:5000/docs
 ```
 
-
-## 🚀 Deployment <a name = "deployment"></a>
-
-Add additional notes about how to deploy this on a live system.
+#### For Redoc Documentation
+```
+localhost:5000/redoc
+```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
