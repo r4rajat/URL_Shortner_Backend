@@ -35,7 +35,6 @@ async def get_shortened_url(long_url: str):
         long_url = long_url[0]
         short_url = get_data_from_memcached(key=long_url)
         if short_url:
-            short_url = short_url.decode('utf-8')
             content = {
                 constant.MESSAGE: "Short URL Found for " + long_url,
                 constant.SHORT_URL: short_url
