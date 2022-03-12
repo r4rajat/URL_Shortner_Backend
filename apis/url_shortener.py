@@ -79,7 +79,8 @@ async def create_shortened_url(payload: Payload, background_task: BackgroundTask
             background_task.add_task(_set_data_to_db_memcached, long_url, short_url)
             if short_url != preferred_short_url:
                 content = {
-                    constant.MESSAGE: "Couldn't create Preferred Short URL for " + long_url + " as it already exists in our systems",
+                    constant.MESSAGE: "Couldn't create Preferred Short URL for " + long_url + "as it already exists "
+                                                                                              "in our systems",
                     constant.SHORT_URL: "if.cld/" + short_url
                 }
                 return JSONResponse(content=content, status_code=201)
