@@ -42,9 +42,9 @@ A step by step series of examples that tell you how to get a development env run
 pip3 install -r requirements.txt
 ```
 
-#### Step 2: Running Memcached Server on Docker
+#### Step 2: Running Memcached Server & MongoDB on Docker
 ```
-docker-compose -f dependency-docker-compose.yml up
+docker-compose -f ./deployment-files/dependency-docker-compose.yml up
 ```
 
 #### Step 3: Setting Up Environmental Variables
@@ -89,6 +89,14 @@ localhost:5000/docs
 #### For Redoc Documentation
 ```
 localhost:5000/redoc
+```
+
+## 🚀 Deployment <a name = "deployment"></a>
+
+To Deploy whole Application with all Dependencies on Local System,  kindly run the below command
+
+```
+docker-compose -f ./deployment-files/deploy-project-localhost.yml up
 ```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
