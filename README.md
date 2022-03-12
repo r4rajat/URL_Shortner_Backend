@@ -82,7 +82,64 @@ pytest
 ```
 
 ## 📃 API Documentation <a name="usage"></a>
-To check the Supported Endpoints, and it's documentation, Run the Project and kindly use any of the methods mentioned below
+
+Here are the API Endpoint used in this Project
+
+- To Get the Shortened URL for Long URL
+```
+ENDPOINT: /get-shortened-url
+REQUEST TYPE: GET
+QUERY PARAMETERS: long_url
+RESPONSES:
+  200: 
+    {
+      "message": "Short URL Found for www.testlongurl.com",
+      "short_url": "if.cld/kj2bU1bWof"
+    }
+  
+  404:
+    {
+      "message": "No Shortened URL found for www.testlongurl.com"
+    }
+```
+
+- To Create Shortened URL
+```
+ENDPOINT: /create-shortened-url
+REQUEST TYPE: POST
+BODY:
+  Example 1: With Preferred Short URL
+    {
+      "long_url": "http://www.testlongurl.com",
+      "preferred_short_url": "tstng"
+    }
+  Example 2: Without Preferred Short URL
+    {
+      "long_url": "http://www.testlongurl.com"
+    }
+RESPONSES:
+  201: 
+    {
+      "message": "Short URL created for www.testlongurl.com",
+      "short_url": "if.cld/tstng"
+    }
+    OR
+    {
+      "message": "Short URL created for www.testlongurl.com",
+      "short_url": "if.cld/kj2bU1bWof"
+    }
+    OR
+    {
+      "message": "Couldn't create Preferred Short URL for www.testlongurl.com as it already exists in our systems",
+      "short_url": "if.cld/kj2bU1bWof"
+    }
+  409:
+    {
+      "message": "Short URL already there for www.testlongurl.com",
+      "short_url": "if.cld/tstng"
+    }
+```
+To check & Test the Supported Endpoints, and it's documentation, Run the Project and kindly use any of the methods mentioned below
 
 #### For Swagger UI Documentation
 ```
