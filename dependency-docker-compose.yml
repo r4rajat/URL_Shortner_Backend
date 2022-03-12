@@ -5,7 +5,16 @@ services:
     image: docker.io/bitnami/memcached:1
     ports:
       - '11211:11211'
+    container_name: 'memcached'
     environment:
       - MEMCACHED_CACHE_SIZE=128
       - MEMCACHED_MAX_CONNECTIONS=2000
       - MEMCACHED_MAX_ITEM_SIZE=8388608
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    container_name: 'mongo'
+    volumes:
+      - ./mongo/data:/data/db

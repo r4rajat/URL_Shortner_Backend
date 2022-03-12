@@ -30,7 +30,6 @@ To run the URL Shortener on Local System, first we need to install following Sof
 
 - [Python 3](https://www.python.org/downloads/)
 - [Docker](https://docs.docker.com/get-docker/)
-- [MongoDB](https://www.mongodb.com/try/download/community)
 
 Once above Dependencies are installed we can move with [further steps](#installing)
 
@@ -45,7 +44,7 @@ pip3 install -r requirements.txt
 
 #### Step 2: Running Memcached Server on Docker
 ```
-docker-compose -f memcached-docker-compose.yml up
+docker-compose -f dependency-docker-compose.yml up
 ```
 
 #### Step 3: Setting Up Environmental Variables
