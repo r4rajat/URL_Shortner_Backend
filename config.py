@@ -2,7 +2,7 @@ from fastapi import FastAPI
 import memcache
 import os
 import constant
-from pymongo import MongoClient
+import pymongo
 
 
 # FastAPI Application Configuration
@@ -16,8 +16,14 @@ memcache_client = memcache.Client([MEMCACHED_URL], debug=0)     # Memcached Conn
 MONGODB_HOST = os.environ.get(constant.MONGODB_HOST, 'localhost')
 MONGODB_PORT = os.environ.get(constant.MONGODB_PORT, '27017')
 MONGODB_URL = 'mongodb://' + MONGODB_HOST + ':' + MONGODB_PORT
-mongodb_client = MongoClient(MONGODB_URL)   # MongoDB Connection
-db = mongodb_client['infracloud_db']    # Setting Database to Use
-collection = db['url_shortner']     # Setting Collection to Use
+MONGODB_DB = os.environ.get(constant.MONGODB_DB, 'infracloud_db')
+MONGODB_COLLECTION = os.environ.get(constant.MONGODB_COLLECTION, 'url_shortner')
+try:
+    mongodb_client = pymongo.MongoClient(MONGODB_URL)   # MongoDB Connection
+    db = mongodb_client[MONGODB_DB]    # Setting Database to Use
+    collection = db[MONGODB_COLLECTION]     # Setting Collection to Use
+except pymongo.errors.ConnectionError as e:
+    raise Exception(e)
+
 
 from apis import url_shortener
