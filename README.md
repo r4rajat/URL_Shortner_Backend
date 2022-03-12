@@ -20,6 +20,8 @@
 ## 🧐 About <a name = "about"></a>
 
 The URL Shortener is a program which takes a Long URL in input and provides a Short URL in output. 
+This Program uses MongoDB to Store Data Permanently in Key value pairs. But also uses Memcached to Store Data in Cache Memory for Faster Access.
+The Documentation of APIs will be found at [API Documentation](#usage)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
