@@ -133,5 +133,5 @@ dmypy.json
 .vscode/
 
 #Database Storage
-mongo/*
+*/mongo
 deployment-files/*

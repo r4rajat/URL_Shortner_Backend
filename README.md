@@ -13,6 +13,7 @@
 - [Built Using](#built_using)
 - [Running the tests](#tests)
 - [API Documentation](#usage)
+- [Deployment](#deployment)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
@@ -22,7 +23,7 @@ The URL Shortener is a program which takes a Long URL in input and provides a Sh
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a local system.
 
 ### Prerequisites
 
@@ -93,6 +94,7 @@ localhost:5000/redoc
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
+[Note]: In Order to Deploy the Project, Docker must be running on the Local System, and if any project related pods are running previously, Stop/Remove them<br><br>
 To Deploy whole Application with all Dependencies on Local System,  kindly run the below command
 
 ```
