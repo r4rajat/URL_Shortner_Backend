@@ -25,7 +25,7 @@ The Documentation of APIs will be found at [API Documentation](#usage)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a local system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [Deployment](#deployment) for notes on how to deploy the project on a Local System or on a Kubernetes Server.
 
 ### Prerequisites
 
@@ -159,6 +159,19 @@ To Deploy whole Application with all Dependencies on Local System,  kindly run t
 ```
 docker-compose -f ./deployment-files/deploy-project-localhost.yml up
 ```
+
+In order to deploy the Project on a Kubernetes Server kindly follow below steps:
+```
+kubectl create -f ./deployment-files/mongodb-deployment.yaml
+```
+```
+kubectl create -f ./deployment-files/memcached-deployment.yaml
+```
+```
+kubectl create -f ./deployment-files/application-deployment.yaml
+```
+
+API Host will be exposed on the URL Provided by LoadBalancer of the Server
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
