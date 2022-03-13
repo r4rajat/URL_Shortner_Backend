@@ -39,7 +39,10 @@ async def get_shortened_url(long_url: str):
                 constant.MESSAGE: "Short URL Found for " + long_url,
                 constant.SHORT_URL: "if.cld/" + short_url
             }
-            return JSONResponse(content=content, status_code=200)
+            headers = {
+                constant.FROM: "Memcached"
+            }
+            return JSONResponse(content=content, status_code=200, headers=headers)
 
         else:
             data = find_one({constant.LONG_URL: long_url})
@@ -49,7 +52,10 @@ async def get_shortened_url(long_url: str):
                     constant.MESSAGE: "Short URL Found for " + long_url,
                     constant.SHORT_URL: "if.cld/" + short_url
                 }
-                return JSONResponse(content=content, status_code=200)
+                headers = {
+                    constant.FROM: "MongoDB"
+                }
+                return JSONResponse(content=content, status_code=200, headers=headers)
             else:
                 content = {
                     constant.MESSAGE: "No Shortened URL found for " + long_url
