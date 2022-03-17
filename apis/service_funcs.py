@@ -57,3 +57,12 @@ def create_short_url(long_url, preferred_short_url):
     except Exception as e:
         raise Exception(e)
 
+
+def get_long_url_func(short_url):
+    try:
+        long_url = find_one({constant.SHORT_URL: short_url})
+        long_url = long_url[constant.LONG_URL]
+        return long_url
+
+    except Exception as e:
+        raise Exception(e)
