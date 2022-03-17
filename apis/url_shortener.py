@@ -1,10 +1,10 @@
 from config import app
 import constant
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 from fastapi import BackgroundTasks
 from pydantic import BaseModel
 from typing import Optional
-from apis.service_funcs import find_one, insert_one, get_data_from_memcached, set_data_in_memcached, create_short_url
+from apis.service_funcs import find_one, insert_one, get_data_from_memcached, set_data_in_memcached, create_short_url, get_long_url_func
 
 
 class Payload(BaseModel):
@@ -109,6 +109,30 @@ async def create_shortened_url(payload: Payload, background_task: BackgroundTask
             }
             return JSONResponse(content=content, status_code=409)
 
+    except Exception as e:
+        content = {
+            constant.ERROR: "Error Occurred",
+            constant.CAUSE: str(e)
+        }
+        return JSONResponse(content=content, status_code=500)
+
+
+@app.get("/{short_url}")
+async def get_long_url(short_url: str, response_class=RedirectResponse):
+    try:
+
+        long_url = get_long_url_func(short_url=short_url)
+        if long_url:
+            content = {
+                constant.MESSAGE: "Long URL for " + short_url + " found",
+                constant.LONG_URL: long_url
+            }
+            return RedirectResponse('http://'+long_url)
+        else:
+            content = {
+                constant.MESSAGE: "No Long URL found for " + short_url
+            }
+            return RedirectResponse(content=content, status_code=400)
     except Exception as e:
         content = {
             constant.ERROR: "Error Occurred",

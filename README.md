@@ -2,9 +2,6 @@
 
 ---
 
-<p align="center"> URL Shortener for InfraCloud Round 1.
-    <br> 
-</p>
 
 ## 📝 Table of Contents
 
@@ -86,6 +83,21 @@ pytest
 Here are the API Endpoint used in this Project
 
 - To Get the Shortened URL for Long URL
+
+```
+ENDPOINT: /{short_url}
+REQUEST TYPE: GET
+PATH PARAMETERS: short_url
+RESPONSES:
+  200: 
+    Redirect to the Long URL
+  
+  404:
+    {
+      "message": "No Long URL found for localhost:5000/tstng"
+    }
+```
+
 ```
 ENDPOINT: /get-shortened-url
 REQUEST TYPE: GET
